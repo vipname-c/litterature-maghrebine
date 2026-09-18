@@ -1,0 +1,58 @@
+/* =========================================================
+   DESIGN SYSTEM
+   ========================================================= */
+
+:root {
+
+    /* -------------------------
+       COLORS
+       ------------------------- */
+
+    --color-bg: #11100E;
+    --color-bg-soft: #171512;
+    --color-surface: #1D1A17;
+
+    --color-text: #F1E9DA;
+    --color-text-soft: #C8BFB0;
+    --color-text-muted: #81796D;
+
+    --color-accent: #B96F4A;
+    --color-accent-light: #D49A78;
+
+    --color-sand: #C9B38C;
+
+    --color-border: rgba(241, 233, 218, 0.12);
+
+
+    /* -------------------------
+       TYPOGRAPHY
+       ------------------------- */
+
+    --font-display: "Cormorant Garamond", serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+
+
+    /* -------------------------
+       LAYOUT
+       ------------------------- */
+
+    --container-width: 1280px;
+
+    --section-padding:
+        clamp(6rem, 10vw, 10rem);
+
+    --side-padding:
+        clamp(1.5rem, 5vw, 5rem);
+
+
+    /* -------------------------
+       MOTION
+       ------------------------- */
+
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+    --transition-fast: 0.3s ease;
+    --transition-medium: 0.6s var(--ease-out);
+    --transition-slow: 1s var(--ease-out);
+}

@@ -1,0 +1,359 @@
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 100;
+
+    pointer-events: none;
+}
+
+.navbar {
+    width: 100%;
+
+    padding: 1.5rem var(--side-padding);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* -------------------------
+   LOGO
+   ------------------------- */
+
+.logo {
+    pointer-events: auto;
+
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+
+    color: var(--color-text);
+
+    transition: color var(--transition-fast);
+}
+
+.logo:hover {
+    color: var(--color-accent);
+}
+
+
+/* -------------------------
+   PROGRESS
+   ------------------------- */
+
+.nav-progress {
+    position: absolute;
+    left: 50%;
+
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    transform: translateX(-50%);
+
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+
+    color: var(--color-text-muted);
+}
+
+.nav-progress-current {
+    color: var(--color-text);
+}
+
+.nav-progress-line {
+    width: 40px;
+    height: 1px;
+
+    background: var(--color-border);
+}
+
+
+/* -------------------------
+   MENU BUTTON
+   ------------------------- */
+
+.menu-button {
+    position: relative;
+
+    width: 42px;
+    height: 42px;
+
+    pointer-events: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+
+    transition:
+        border-color var(--transition-fast),
+        background var(--transition-fast);
+}
+
+.menu-button:hover {
+    border-color: var(--color-accent);
+    background: rgba(185, 111, 74, 0.06);
+}
+
+.menu-button span {
+    position: absolute;
+
+    width: 17px;
+    height: 1px;
+
+    background: var(--color-text);
+
+    transition:
+        transform var(--transition-medium),
+        top var(--transition-medium);
+}
+
+.menu-button span:first-child {
+    top: 16px;
+}
+
+.menu-button span:last-child {
+    top: 23px;
+}
+
+
+/* -------------------------
+   MENU BUTTON → CLOSE
+   ------------------------- */
+
+.menu-button[aria-expanded="true"] span:first-child {
+    top: 20px;
+
+    transform: rotate(45deg);
+}
+
+.menu-button[aria-expanded="true"] span:last-child {
+    top: 20px;
+
+    transform: rotate(-45deg);
+}
+
+
+/* =========================================================
+   FULLSCREEN MENU
+   ========================================================= */
+
+.navigation-menu {
+    position: fixed;
+    inset: 0;
+
+    z-index: 90;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 2rem var(--side-padding);
+
+    background: var(--color-bg-soft);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-20px);
+
+    transition:
+        opacity 0.45s ease,
+        visibility 0.45s ease,
+        transform 0.6s var(--ease-out);
+}
+
+.navigation-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* -------------------------
+   MENU HEADER
+   ------------------------- */
+
+.navigation-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navigation-menu-label {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+
+    color: var(--color-text-muted);
+}
+
+
+/* -------------------------
+   CLOSE BUTTON
+   ------------------------- */
+
+.navigation-close {
+    position: relative;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+
+    transition:
+        border-color var(--transition-fast),
+        background var(--transition-fast);
+}
+
+.navigation-close:hover {
+    border-color: var(--color-accent);
+    background: rgba(185, 111, 74, 0.06);
+}
+
+.navigation-close span {
+    position: absolute;
+
+    top: 20px;
+    left: 11px;
+
+    width: 18px;
+    height: 1px;
+
+    background: var(--color-text);
+}
+
+.navigation-close span:first-child {
+    transform: rotate(45deg);
+}
+
+.navigation-close span:last-child {
+    transform: rotate(-45deg);
+}
+
+
+/* -------------------------
+   NAVIGATION LINKS
+   ------------------------- */
+
+.navigation-links {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: min(100%, 1000px);
+
+    margin: 0 auto;
+}
+
+.navigation-links a {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    align-items: baseline;
+
+    padding: 1rem 0;
+
+    border-bottom: 1px solid var(--color-border);
+
+    transition:
+        padding-left var(--transition-medium),
+        color var(--transition-fast);
+}
+
+.navigation-links a:first-child {
+    border-top: 1px solid var(--color-border);
+}
+
+.navigation-links a span {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+
+    color: var(--color-text-muted);
+}
+
+.navigation-links a strong {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
+    font-weight: 500;
+    line-height: 1;
+
+    color: var(--color-text);
+}
+
+.navigation-links a:hover {
+    padding-left: 1rem;
+}
+
+.navigation-links a:hover strong {
+    color: var(--color-accent);
+}
+
+
+/* -------------------------
+   MENU FOOTER
+   ------------------------- */
+
+.navigation-menu-footer {
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 1.5rem;
+
+    border-top: 1px solid var(--color-border);
+
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+
+    color: var(--color-text-muted);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 1.25rem;
+    }
+
+    .nav-progress {
+        display: none;
+    }
+
+    .navigation-menu {
+        padding: 1.25rem;
+    }
+
+    .navigation-links a {
+        grid-template-columns: 40px 1fr;
+    }
+
+    .navigation-links a strong {
+        font-size: clamp(2rem, 11vw, 3.2rem);
+    }
+
+    .navigation-menu-footer {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+}

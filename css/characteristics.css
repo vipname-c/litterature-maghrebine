@@ -1,0 +1,110 @@
+/* =========================================================
+   CHARACTERISTICS
+   ========================================================= */
+
+.characteristics {
+    overflow: hidden;
+}
+
+.characteristics-list {
+    margin-top: 5.5rem;
+}
+
+
+/* -------------------------
+   CARD
+   ------------------------- */
+
+.characteristic-card {
+    cursor: default;
+}
+
+.characteristic-content {
+    transition:
+        transform var(--transition-medium);
+}
+
+.characteristic-card:hover .characteristic-content {
+    transform: translateY(-6px);
+}
+
+
+/* -------------------------
+   NUMBER
+   ------------------------- */
+
+.characteristic-number {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.characteristic-number::after {
+    content: "";
+
+    width: 0;
+    height: 1px;
+
+    background: var(--color-accent);
+
+    transition:
+        width var(--transition-medium);
+}
+
+.characteristic-card:hover .characteristic-number::after {
+    width: 22px;
+}
+
+
+/* -------------------------
+   SUBTLE CARD GLOW
+   ------------------------- */
+
+.characteristic-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    right: -90px;
+    bottom: -90px;
+
+    border-radius: 50%;
+
+    background: var(--color-accent);
+
+    opacity: 0;
+
+    filter: blur(70px);
+
+    transition:
+        opacity var(--transition-slow);
+}
+
+.characteristic-card:hover::after {
+    opacity: 0.06;
+}
+
+
+/* -------------------------
+   RESPONSIVE
+   ------------------------- */
+
+@media (max-width: 900px) {
+
+    .characteristics-list {
+        margin-top: 4rem;
+    }
+
+    .characteristic-card:hover .characteristic-content {
+        transform: none;
+    }
+
+    .characteristic-card::after {
+        display: none;
+    }
+}

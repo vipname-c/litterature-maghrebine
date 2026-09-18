@@ -1,0 +1,390 @@
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 100svh;
+    padding: 9rem var(--side-padding) 4rem;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+
+/* -------------------------
+   CONTENT
+   ------------------------- */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(100%, var(--container-width));
+    margin: 0 auto;
+}
+
+.hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+
+    color: var(--color-accent);
+}
+
+.hero-eyebrow::before {
+    content: "";
+
+    width: 34px;
+    height: 1px;
+
+    background: var(--color-accent);
+}
+
+
+/* -------------------------
+   TITLE
+   ------------------------- */
+
+.hero h1 {
+    max-width: 1050px;
+
+    margin-top: 2rem;
+
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 8vw, 8rem);
+    font-weight: 500;
+
+    line-height: 0.88;
+    letter-spacing: -0.035em;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: var(--color-accent);
+
+    font-style: italic;
+    font-weight: 400;
+}
+
+
+/* -------------------------
+   SUBTITLE
+   ------------------------- */
+
+.hero-subtitle {
+    margin-top: 2.5rem;
+
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    color: var(--color-text-soft);
+
+    letter-spacing: 0.02em;
+}
+
+
+/* -------------------------
+   EXPLORE
+   ------------------------- */
+
+.hero-explore {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+
+    margin-top: 4rem;
+
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    color: var(--color-text);
+
+    transition:
+        color var(--transition-fast);
+}
+
+.hero-explore-line {
+    width: 55px;
+    height: 1px;
+
+    background: var(--color-border);
+
+    transition:
+        width var(--transition-medium),
+        background var(--transition-fast);
+}
+
+.hero-explore-arrow {
+    color: var(--color-accent);
+
+    transition:
+        transform var(--transition-medium);
+}
+
+.hero-explore:hover {
+    color: var(--color-accent-light);
+}
+
+.hero-explore:hover .hero-explore-line {
+    width: 80px;
+    background: var(--color-accent);
+}
+
+.hero-explore:hover .hero-explore-arrow {
+    transform: translateY(5px);
+}
+
+
+/* -------------------------
+   ABSTRACT VISUAL
+   ------------------------- */
+
+.hero-visual {
+    position: absolute;
+
+    top: 50%;
+    right: -8vw;
+
+    width: min(55vw, 750px);
+    aspect-ratio: 1;
+
+    transform: translateY(-50%);
+
+    pointer-events: none;
+}
+
+
+/* soft atmospheric glow */
+
+.hero-glow {
+    position: absolute;
+
+    inset: 20%;
+
+    border-radius: 50%;
+
+    background: var(--color-accent);
+
+    opacity: 0.035;
+
+    filter: blur(80px);
+}
+
+
+/* orbit rings */
+
+.hero-orbit {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    border: 4px solid var(--color-border);
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%) rotate(-20deg);
+}
+
+.hero-orbit-one {
+    width: 65%;
+    height: 32%;
+    border-color: rgba(201, 179, 140, 0.16);
+
+    animation: orbit-one 18s linear infinite;
+}
+
+.hero-orbit-two {
+    width: 80%;
+    height: 45%;
+    border-color: rgba(185, 111, 74, 0.13);
+
+    transform: translate(-50%, -50%) rotate(38deg);
+
+    animation: orbit-two 24s linear infinite;
+}
+
+/* -------------------------
+   BOTTOM INFORMATION
+   ------------------------- */
+
+.hero-bottom {
+    position: absolute;
+
+    left: var(--side-padding);
+    right: var(--side-padding);
+    bottom: 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+
+    color: var(--color-text-muted);
+}
+
+
+/* -------------------------
+   RESPONSIVE
+   ------------------------- */
+
+@media (max-width: 900px) {
+
+    .hero {
+        min-height: 100svh;
+    }
+
+    .hero h1 {
+        font-size: clamp(4rem, 12vw, 7rem);
+    }
+
+    .hero-visual {
+        right: -20vw;
+        width: 70vw;
+        opacity: 0.7;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding-top: 8rem;
+        padding-bottom: 6rem;
+    }
+
+    .hero-eyebrow {
+        font-size: 0.58rem;
+    }
+
+    .hero h1 {
+        margin-top: 1.5rem;
+
+        font-size: clamp(3.5rem, 16vw, 5rem);
+        line-height: 0.9;
+    }
+
+    .hero-subtitle {
+        margin-top: 2rem;
+        font-size: 0.95rem;
+    }
+
+    .hero-explore {
+        margin-top: 3rem;
+    }
+
+    .hero-visual {
+        right: -35vw;
+        width: 95vw;
+        opacity: 0.45;
+    }
+
+    .hero-bottom {
+        bottom: 1.25rem;
+
+        font-size: 0.5rem;
+    }
+
+    .hero-bottom span:last-child {
+        display: none;
+    }
+}
+
+/* =========================================================
+   HERO ORBIT ANIMATION
+   ========================================================= */
+
+@keyframes orbit-one {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes orbit-two {
+    from {
+        transform: translate(-50%, -50%) rotate(38deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(-322deg);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-orbit-one,
+    .hero-orbit-two {
+        animation: none;
+    }
+}
+
+/* =========================================================
+   HERO ENTRANCE
+   ========================================================= */
+
+.hero-eyebrow,
+.hero h1,
+.hero-subtitle,
+.hero-explore {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: hero-reveal 1s var(--ease-out) forwards;
+}
+
+.hero-eyebrow {
+    animation-delay: 0.15s;
+}
+
+.hero h1 {
+    animation-delay: 0.3s;
+}
+
+.hero-subtitle {
+    animation-delay: 0.5s;
+}
+
+.hero-explore {
+    animation-delay: 0.7s;
+}
+
+
+@keyframes hero-reveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-eyebrow,
+    .hero h1,
+    .hero-subtitle,
+    .hero-explore {
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+}

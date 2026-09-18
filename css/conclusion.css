@@ -1,0 +1,116 @@
+/* =========================================================
+   CONCLUSION
+   ========================================================= */
+
+.conclusion {
+    min-height: 100vh;
+
+    background: var(--color-bg-soft);
+}
+
+.conclusion .section-content {
+    width: min(100%, 1150px);
+}
+
+
+/* -------------------------
+   CONCLUSION BODY
+   ------------------------- */
+
+.conclusion-body {
+    display: grid;
+    grid-template-columns: 1px minmax(0, 650px);
+    gap: 3rem;
+
+    margin-top: 5.5rem;
+    margin-left: clamp(0rem, 10vw, 10rem);
+}
+
+
+/* -------------------------
+   VERTICAL LINE
+   ------------------------- */
+
+.conclusion-line {
+    width: 1px;
+    height: 100%;
+
+    min-height: 180px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            var(--color-accent),
+            var(--color-border)
+        );
+}
+
+
+/* -------------------------
+   TEXT
+   ------------------------- */
+
+.conclusion-text {
+    display: flex;
+    flex-direction: column;
+
+    gap: 2rem;
+}
+
+.conclusion .section-text {
+    font-size: clamp(1rem, 1.15vw, 1.2rem);
+    line-height: 1.9;
+}
+
+.conclusion-final {
+    max-width: 750px;
+
+    padding-top: 1rem;
+
+    font-family: var(--font-display);
+
+    font-size: clamp(1.5rem, 2.5vw, 2.3rem) !important;
+    font-style: italic;
+
+    line-height: 1.35 !important;
+
+    color: var(--color-text) !important;
+}
+
+.conclusion-final::first-letter {
+    color: var(--color-accent);
+}
+
+
+/* -------------------------
+   RESPONSIVE
+   ------------------------- */
+
+@media (max-width: 900px) {
+
+    .conclusion-body {
+        margin-left: 0;
+        margin-top: 4rem;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .conclusion-body {
+        grid-template-columns: 1px minmax(0, 1fr);
+
+        gap: 1.5rem;
+
+        margin-top: 3.5rem;
+    }
+
+    .conclusion .section-text {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+
+    .conclusion-final {
+        font-size: 1.6rem !important;
+    }
+}
